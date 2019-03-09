@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { connect } from 'react-redux';
+
+import { actions } from '../reducers/user';
+import logo from '../assets/img/logo.svg';
+import '../styles/App.css';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.authUser();
+  }
   render() {
     return (
       <div className="App">
@@ -17,7 +23,8 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn React
+            {this.props.user.name} tiene acceso:{' '}
+            {this.props.user.isAuthenticated ? 'Si' : 'No'}
           </a>
         </header>
       </div>
@@ -25,4 +32,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = ({ user }) => ({
+  user,
+});
+
+export default connect(
+  mapStateToProps,
+  actions,
+)(App);
