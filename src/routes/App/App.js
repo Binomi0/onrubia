@@ -7,7 +7,9 @@ import './styles/App.css';
 
 class AppView extends Component {
   componentDidMount() {
-    this.authUser();
+    if (!this.props.user.isAuthenticated) {
+      this.authUser();
+    }
   }
 
   authUser = () => {

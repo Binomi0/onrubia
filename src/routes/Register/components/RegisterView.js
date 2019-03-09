@@ -7,6 +7,10 @@ export default class RegisterView extends Component {
     }, 3000);
   }
   render() {
-    return <div>RegisterView</div>;
+    return (
+      <div>
+        <h1>Registrando usuario...</h1>
+      </div>
+    );
   }
 }
