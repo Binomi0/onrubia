@@ -21,6 +21,7 @@ const INITIAL_STATE = {
   name: '',
   isRegistered: false,
 };
+
 const ACTION_HANDLERS = {
   [AUTH_USER]: (state, { payload }) => ({
     ...state,
